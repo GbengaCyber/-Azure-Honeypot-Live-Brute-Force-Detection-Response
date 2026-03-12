@@ -70,8 +70,7 @@ SecurityEvent
 
 ```
 
-> **<img width="1405" height="559" alt="image" src="https://github.com/user-attachments/assets/73f5e015-c969-45f8-a5ba-c3090dcaa19c" />
-**
+> <img width="1405" height="559" alt="image" src="https://github.com/user-attachments/assets/73f5e015-c969-45f8-a5ba-c3090dcaa19c" />
 
 
 
@@ -82,10 +81,9 @@ SecurityEvent
 | summarize Count = count() by Account, IpAddress
 | order by Count desc
 
-
-> **[<img width="1405" height="559" alt="image" src="https://github.com/user-attachments/assets/fd30c7d6-e257-4c20-98c7-41a1e75e0245" />
-]**
 ```
+
+> <img width="1405" height="559" alt="image" src="https://github.com/user-attachments/assets/fd30c7d6-e257-4c20-98c7-41a1e75e0245" />
 
 > **No successful logons from attacker IPs. No compromise.**
 
@@ -102,8 +100,8 @@ SecurityEvent
 | 65500 | DenyAllInBound | Any | Any | Deny |
 
 
-> **[<img width="2850" height="680" alt="image" src="https://github.com/user-attachments/assets/699d9f22-12ce-4ea5-9ea0-7266152b8c58" />
-]**
+> [<img width="2850" height="680" alt="image" src="https://github.com/user-attachments/assets/699d9f22-12ce-4ea5-9ea0-7266152b8c58" />
+
 
 ---
 
