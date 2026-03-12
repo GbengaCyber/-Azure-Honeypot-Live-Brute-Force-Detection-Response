@@ -38,8 +38,8 @@ SecurityEvent
 
 ### Live Attack Data
 
-> **[<img width="1405" height="559" alt="image" src="https://github.com/user-attachments/assets/e543fa00-860e-46d9-96da-3e7d7258430c" />
-]**
+> [<img width="1405" height="559" alt="image" src="https://github.com/user-attachments/assets/e543fa00-860e-46d9-96da-3e7d7258430c" />
+
 
 ---
 
