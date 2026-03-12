@@ -116,10 +116,8 @@ SecurityEvent
 | Ongoing | Connect all VMs to Sentinel — custom KQL alerts for brute force patterns |
 | Ongoing | Integrate threat intel feeds (AbuseIPDB, Microsoft TI) for auto IP blocking |
 
-> **[<img width="2850" height="680" alt="image" src="[https://github.com/user-attachments/assets/699d9f22-12ce-4ea5-9ea0-7266152b8c58](https://github.com/user-attachments/assets/b13979ad-d3f5-44cd-b921-b82283829091)" />
-]**
 
-> [<img width="2850" height="680" alt="image" src="https://github.com/user-attachments/assets/699d9f22-12ce-4ea5-9ea0-7266152b8c58" />
+> [<img width="2850" height="680" alt="image" src="https://github.com/user-attachments/assets/b13979ad-d3f5-44cd-b921-b82283829091" />
 
 ---
 
