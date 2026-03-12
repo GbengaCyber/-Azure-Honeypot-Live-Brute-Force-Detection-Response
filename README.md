@@ -67,6 +67,10 @@ SecurityEvent
 | where EventID == 4624           // Successful logon
 | where IpAddress has_any ("185.156.73", "92.63.197")
 | project TimeGenerated, Account, IpAddress, LogonType
+
+> **[<img width="1405" height="559" alt="image" src="<img width="975" height="406" alt="image" src="https://github.com/user-attachments/assets/73f5e015-c969-45f8-a5ba-c3090dcaa19c" />
+" />
+]**
 ```
 
 ```kql
@@ -75,6 +79,10 @@ SecurityEvent
 | where EventID == 4624
 | summarize Count = count() by Account, IpAddress
 | order by Count desc
+
+> **[<img width="1405" height="559" alt="image" src="<img width="1786" height="814" alt="image" src="https://github.com/user-attachments/assets/fd30c7d6-e257-4c20-98c7-41a1e75e0245" />
+" />
+]**
 ```
 
 > **No successful logons from attacker IPs. No compromise.**
@@ -108,6 +116,9 @@ SecurityEvent
 | Short-term | Enforce MFA on all accounts via Entra ID |
 | Ongoing | Connect all VMs to Sentinel — custom KQL alerts for brute force patterns |
 | Ongoing | Integrate threat intel feeds (AbuseIPDB, Microsoft TI) for auto IP blocking |
+
+> **[<img width="2850" height="680" alt="image" src="[https://github.com/user-attachments/assets/699d9f22-12ce-4ea5-9ea0-7266152b8c58](https://github.com/user-attachments/assets/b13979ad-d3f5-44cd-b921-b82283829091)" />
+]**
 
 ---
 
