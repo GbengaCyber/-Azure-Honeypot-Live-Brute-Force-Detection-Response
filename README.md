@@ -78,7 +78,6 @@ The queries returned **1,000+ events within 24 hours**, all bearing the hallmark
 | 3/12/2026, 2:22:24 PM | soclab\paulh | 185.156.73.173 | NTLM |
 | 3/12/2026, 2:22:24 PM | soclab\nati | 92.63.197.69 | NTLM |
 
-<img width="1000" height="600" alt="image" src="https://github.com/user-attachments/assets/fb27be3b-d8e6-47cf-8a83-cff2ff34d2d3" />
 
 
 ### Attack Indicators
