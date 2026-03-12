@@ -58,9 +58,14 @@ SecurityEvent
 | where Computer == "soclab"
 | project TimeGenerated, Account, IpAddress, LocationInformation,
           AccountType, AuthenticationPackageName
+
+
 ```
 
 ### Results — Evidence of Brute Force
+
+<img width="1000" height="600" alt="image" src="https://github.com/user-attachments/assets/fb27be3b-d8e6-47cf-8a83-cff2ff34d2d3" />
+
 
 The queries returned **1,000+ events within 24 hours**, all bearing the hallmarks of an automated credential stuffing campaign:
 
@@ -127,6 +132,9 @@ SecurityEvent
 | where EventID == 4624  // Successful logon
 | where IpAddress has_any ("185.156.73", "92.63.197")
 | project TimeGenerated, Account, IpAddress, LogonType
+
+<img width="976" height="387" alt="image" src="https://github.com/user-attachments/assets/c2d17203-0249-4aae-915a-3b9148fc2814" />
+
 ```
 
 ```kql
@@ -137,6 +145,9 @@ SecurityEvent
 | where TimeGenerated > ago(24h)
 | summarize SuccessfulLogons = count() by Account, IpAddress
 | order by SuccessfulLogons desc
+
+<img width="1200" height="800" alt="image" src="https://github.com/user-attachments/assets/d02dfc17-9174-4085-ac01-b613c791c1f3" />
+
 ```
 
 > ✅ **Result: No successful logons from attacker IPs were found. Zero compromise confirmed.**
