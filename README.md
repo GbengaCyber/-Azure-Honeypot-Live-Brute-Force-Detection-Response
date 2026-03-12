@@ -30,11 +30,6 @@
 ### KQL Queries — Microsoft Sentinel
 
 ```kql
-DeviceLogonEvents
-| where DeviceName == "soclab"
-```
-
-```kql
 SecurityEvent
 | where Computer == "soclab"
 | project TimeGenerated, Account, IpAddress,
@@ -98,7 +93,8 @@ SecurityEvent
 
 > **[SCREENSHOT — NSG rules before hardening]**
 
-> **[SCREENSHOT — NSG rules after hardening]**
+> **[<img width="2850" height="680" alt="image" src="https://github.com/user-attachments/assets/699d9f22-12ce-4ea5-9ea0-7266152b8c58" />
+]**
 
 ---
 
