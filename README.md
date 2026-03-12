@@ -1,0 +1,140 @@
+# Azure Honeypot — Live Brute Force Detection & Response
+
+> Deployed a deliberately exposed Azure VM as a honeypot. Within **minutes**, automated attackers were hammering it. This documents how I detected, responded to, and hardened against a live brute force attack using Microsoft Sentinel.
+
+---
+
+## Environment
+
+| | |
+|---|---|
+| **Platform** | Microsoft Azure + Microsoft Sentinel |
+| **VM** | `soclab` |
+| **Attack Type** | Brute Force / Credential Stuffing |
+| **Protocol Targeted** | NTLM (RDP/SMB) |
+| **Outcome** | Contained — Zero Compromise |
+
+---
+
+## Honeypot Setup
+
+- Spun up an Azure VM with a **public IP and RDP exposed**
+- Created a **honeypot account** with a common username to attract scanners
+- Connected VM to **Microsoft Sentinel** via Log Analytics Workspace
+- Waited — bots found it in minutes
+
+---
+
+## Attack Detected
+
+### KQL Queries — Microsoft Sentinel
+
+```kql
+DeviceLogonEvents
+| where DeviceName == "soclab"
+```
+
+```kql
+SecurityEvent
+| where Computer == "soclab"
+| project TimeGenerated, Account, IpAddress,
+          AccountType, AuthenticationPackageName
+```
+
+### Live Attack Data
+
+> **[SCREENSHOT — Sentinel brute force logs]**
+
+---
+
+Key indicators from the results:
+
+- **1,000+ failed logon events** in under 24 hours
+- **Millisecond-apart timestamps** — fully automated botnet
+- **Two attacker IP ranges:** `185.156.73.x` · `92.63.197.x` (confirmed malicious via AbuseIPDB)
+- **Common username wordlist** in use: `administrator`, `ws7`, `mkt`, `paulh`, `edu`
+- **All NTLM** — targeting Windows auth surface
+
+---
+
+## Incident Response
+
+### 1 — Isolate
+
+Immediately **blocked all inbound traffic via NSG** — network isolation while investigating. No lateral movement possible.
+
+### 2 — Hunt for Successful Logins
+
+```kql
+SecurityEvent
+| where Computer == "soclab"
+| where EventID == 4624           // Successful logon
+| where IpAddress has_any ("185.156.73", "92.63.197")
+| project TimeGenerated, Account, IpAddress, LogonType
+```
+
+```kql
+SecurityEvent
+| where Computer == "soclab"
+| where EventID == 4624
+| summarize Count = count() by Account, IpAddress
+| order by Count desc
+```
+
+> **No successful logons from attacker IPs. No compromise.**
+
+---
+
+## Hardening
+
+### NSG Rules Applied
+
+| Priority | Rule | Port | Source | Action |
+|---|---|---|---|---|
+| 300 | RDP | 3389 | `[My IP]/32` | Allow |
+| 311 | Deny_Public_IP_Access | 3389 | Any | Deny |
+| 65500 | DenyAllInBound | Any | Any | Deny |
+
+> **[SCREENSHOT — NSG rules before hardening]**
+
+> **[SCREENSHOT — NSG rules after hardening]**
+
+---
+
+## Remediation & Recommendations
+
+| Priority | Action |
+|---|---|
+| Immediate | Restrict RDP to trusted IP only — never expose 3389 publicly |
+| Immediate | Enable account lockout — 5 failed attempts, 30-min lockout |
+| Short-term | Replace public RDP with **Azure Bastion** or **JIT VM Access** |
+| Short-term | Enforce MFA on all accounts via Entra ID |
+| Ongoing | Connect all VMs to Sentinel — custom KQL alerts for brute force patterns |
+| Ongoing | Integrate threat intel feeds (AbuseIPDB, Microsoft TI) for auto IP blocking |
+
+---
+
+## MITRE ATT&CK
+
+| Technique | ID |
+|---|---|
+| Brute Force | T1110 |
+| Credential Stuffing | T1110.004 |
+| Network Service Discovery | T1046 |
+| Valid Accounts: Local | T1078.003 |
+
+---
+
+## Tools Used
+
+`Microsoft Azure` `Microsoft Sentinel` `KQL` `Azure NSG` `Defender for Cloud` `MITRE ATT&CK` `AbuseIPDB`
+
+---
+
+## Key Takeaway
+
+> *Any internet-exposed VM will be attacked within minutes — not hours. The question isn't if, it's how fast you detect and respond.*
+
+---
+
+*Lab conducted on personally owned Azure infrastructure.*
