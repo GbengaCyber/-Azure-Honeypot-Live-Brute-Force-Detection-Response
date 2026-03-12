@@ -57,7 +57,7 @@ Key indicators from the results:
 
 ### 1 — Isolate
 
-Immediately **blocked all inbound traffic via NSG** — network isolation while investigating. No lateral movement possible.
+I Immediately **blocked all inbound traffic via NSG** — network isolation while investigating. No lateral movement possible.
 
 ### 2 — Hunt for Successful Logins
 
