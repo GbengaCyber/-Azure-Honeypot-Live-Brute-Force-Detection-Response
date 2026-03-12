@@ -117,7 +117,7 @@ SecurityEvent
 | Ongoing | Integrate threat intel feeds (AbuseIPDB, Microsoft TI) for auto IP blocking |
 
 
-> [<img width="2850" height="680" alt="image" src="https://github.com/user-attachments/assets/b13979ad-d3f5-44cd-b921-b82283829091" />
+> [<img width="1000" height="680" alt="image" src="https://github.com/user-attachments/assets/b13979ad-d3f5-44cd-b921-b82283829091" />
 
 ---
 
