@@ -68,10 +68,11 @@ SecurityEvent
 | where IpAddress has_any ("185.156.73", "92.63.197")
 | project TimeGenerated, Account, IpAddress, LogonType
 
+```
 > **[<img width="1405" height="559" alt="image" src="<img width="975" height="406" alt="image" src="https://github.com/user-attachments/assets/73f5e015-c969-45f8-a5ba-c3090dcaa19c" />
 " />
 ]**
-```
+
 
 ```kql
 SecurityEvent
