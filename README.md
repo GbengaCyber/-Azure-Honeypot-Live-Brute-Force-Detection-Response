@@ -80,8 +80,8 @@ SecurityEvent
 | summarize Count = count() by Account, IpAddress
 | order by Count desc
 
-> **[<img width="1405" height="559" alt="image" src="<img width="1786" height="814" alt="image" src="https://github.com/user-attachments/assets/fd30c7d6-e257-4c20-98c7-41a1e75e0245" />
-" />
+
+> **[<img width="1405" height="559" alt="image" src="https://github.com/user-attachments/assets/fd30c7d6-e257-4c20-98c7-41a1e75e0245" />
 ]**
 ```
 
@@ -99,7 +99,6 @@ SecurityEvent
 | 311 | Deny_Public_IP_Access | 3389 | Any | Deny |
 | 65500 | DenyAllInBound | Any | Any | Deny |
 
-> **[SCREENSHOT — NSG rules before hardening]**
 
 > **[<img width="2850" height="680" alt="image" src="https://github.com/user-attachments/assets/699d9f22-12ce-4ea5-9ea0-7266152b8c58" />
 ]**
