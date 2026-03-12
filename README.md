@@ -1,6 +1,6 @@
 # Azure Honeypot — Live Brute Force Detection & Response
 
-> Deployed a deliberately exposed Azure VM as a honeypot. Within **minutes**, automated attackers were hammering it. This documents how I detected, responded to, and hardened against a live brute force attack using Microsoft Sentinel.
+> I Deployed a deliberately exposed Azure VM as a honeypot. Within **minutes**, automated attackers were hammering it. This documents how I detected, responded to, and hardened against a live brute force attack using Microsoft Sentinel.
 
 ---
 
