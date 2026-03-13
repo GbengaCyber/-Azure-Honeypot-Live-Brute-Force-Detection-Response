@@ -110,7 +110,7 @@ SecurityEvent
 | Priority | Action |
 |---|---|
 | Immediate | Restrict RDP to trusted IP only — never expose 3389 publicly |
-| Immediate | Enable account lockout — 5 failed attempts, 30-min lockout |
+| Immediate | Enable account lockout — 5 failed attempts, 10-min lockout |
 | Short-term | Replace public RDP with **Azure Bastion** or **JIT VM Access** |
 | Short-term | Enforce MFA on all accounts via Entra ID |
 | Ongoing | Connect all VMs to Sentinel — custom KQL alerts for brute force patterns |
